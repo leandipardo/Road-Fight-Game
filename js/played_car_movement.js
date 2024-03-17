@@ -91,9 +91,9 @@ export function giroscopioDirection(){
         car.giroscopio = event.gamma * 3.5;
 }
 }
-function giroscopioRotacion(){
-    setInterval(() => {
-        car.girosciopioAnterior = car.giroscopio;
-    }, 300);
+// function giroscopioRotacion(){
+//     setInterval(() => {
+//         car.girosciopioAnterior = car.giroscopio;
+//     }, 300);
 
-}
+// }
