@@ -97,7 +97,7 @@ export function giroscopioDirection(){
         //     car.giroscopio = event.gamma * 3.5;
         // }
         // car.rotacion(car.girosciopioAnterior);
-        if(event.gamma < 27 && event.gamma > -27)car.giroscopio = event.gamma * 5;
+        if(event.gamma < 27 && event.gamma > -27)car.giroscopio = event.gamma * 10;
 }
 }
 // function giroscopioRotacion(){
