@@ -25,7 +25,7 @@ export const car = {
     },
     direccion(){
         if(this.izq!==false||this.der!==false)return((this.izq - this.der) * this.settings.controlDireccion);
-        if(this.giroscopio!==false)return(this.giroscopio);
+        if(this.giroscopio!==false)return(this.giroscopio * 2);
     },
     speedRegulation(){
         if(car.acelerar && car.arr < 10){
