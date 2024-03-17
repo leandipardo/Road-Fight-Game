@@ -256,3 +256,18 @@ body{
     width: 100vw;
     z-index: 1000;
 }
+@media only screen and (max-width: 768px) {
+    .conteiner{
+        width:400px;
+    }
+    .data {
+        display:  none;
+    }
+    .entorno{
+        width: 40px;
+    }
+    .entorno *{
+        display: none;
+       
+    }
+  }
