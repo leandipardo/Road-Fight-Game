@@ -24,10 +24,19 @@ export const car = {
         }
     },
     limites(){
-        return(document.querySelector(".car").getBoundingClientRect());
+        if(this.sprite.getBoundingClientRect().left < document.querySelector(".street").getBoundingClientRect().left){
+            this.izq--;
+            console.log(this.izq)
+            return false;
+        }else if(this.sprite.getBoundingClientRect().right > document.querySelector(".street").getBoundingClientRect().right){
+            this.der--;
+            return false;
+        }else{
+            return true;
+        };
     },
     direccion(){
-        if(this.izq!==false||this.der!==false)return((this.izq - this.der) * this.settings.controlDireccion);
+        if(this.izq!==false && this.limites()||this.der!==false && this.limites())return((this.izq - this.der) * this.settings.controlDireccion);
         if(this.giroscopio!==false)return(this.giroscopio);
     },
     speedRegulation(){
@@ -88,7 +97,7 @@ export function giroscopioDirection(){
         //     car.giroscopio = event.gamma * 3.5;
         // }
         // car.rotacion(car.girosciopioAnterior);
-        car.giroscopio = event.gamma * 5;
+        if(event.gamma < 27 && event.gamma > -27)car.giroscopio = event.gamma * 5;
 }
 }
 // function giroscopioRotacion(){
