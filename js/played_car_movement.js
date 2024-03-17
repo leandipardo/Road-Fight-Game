@@ -4,7 +4,7 @@ export const car = {
     izq:false,
     der:false,
     giroscopio:false,
-    girosciopioAnterior:0,
+    // girosciopioAnterior:0,
     moverDer:0,
     currentDirection:0,
     sprite:document.querySelector(".car"),
@@ -12,13 +12,13 @@ export const car = {
         aceleracion: 1.5,
         controlDireccion : -20,
     },
-    rotacion(pre){
+    rotacion(){
         if(this.moverDer === 1){
             return 75;
         }else if(this.moverDer === -1){
             return -75;
-        }else if (this.giroscopio!==false){
-            return this.giroscopio - pre;
+        // }else if (this.giroscopio!==false){
+        //     return this.giroscopio;
         }else{
             return 0;
         }
