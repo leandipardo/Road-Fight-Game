@@ -25,7 +25,7 @@ export const car = {
     },
     direccion(){
         if(this.izq!==false||this.der!==false)return((this.izq - this.der) * this.settings.controlDireccion);
-        if(this.giroscopio!==false)return(this.giroscopio * 2);
+        if(this.giroscopio!==false)return(this.giroscopio);
     },
     speedRegulation(){
         if(car.acelerar && car.arr < 10){
@@ -77,7 +77,7 @@ export function playerDirection(){
 export function giroscopioDirection(){
     window.addEventListener('deviceorientation', handleOrientation);
     function handleOrientation(event) {
-        car.giroscopio = event.gamma;
+        car.giroscopio = event.gamma * 2.5;
       console.log(car.giroscopio)
 }
 }
