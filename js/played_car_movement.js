@@ -77,7 +77,7 @@ export function playerDirection(){
 export function giroscopioDirection(){
     window.addEventListener('deviceorientation', handleOrientation);
     function handleOrientation(event) {
-        car.giroscopio = event.gamma * 2.5;
+        car.giroscopio = event.gamma * 3.5;
       console.log(car.giroscopio)
 }
 }
