@@ -1,0 +1,258 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --text-color: #fff;
+    --text-size: 2rem;
+    --sepia-filter:10%;
+    --arena:rgb(252, 236, 145);
+    --border:solid white 3px;
+}
+body{
+    overflow-y: hidden;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.conteiner{
+    border-radius: 20px;
+    border:var(--border);
+    width: 800px;
+    height: 600px;
+    display: flex;
+    flex-flow:row nowrap;
+    overflow: hidden;
+    margin-top: 5vh;
+    background-image: url(/assets/entorno_agua.png);
+    color: var(--text-color);
+}
+.stage::-webkit-scrollbar{
+    visibility: hidden;
+}
+.stage-bar{
+    width: 40px;
+    background-color: var(--arena);
+}
+.street{
+    position: relative;
+    width: 320px;
+    height: 600px;
+    background-color: rgb(48, 48, 48);
+}
+.street-line-conteiner{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: -100%;
+    width: 100%;
+    height: 300%;
+}
+.street-line-movement{
+    animation: street_line .7s linear .5s infinite normal backwards;
+}
+.street-line{
+    position: relative;
+    box-shadow: inset 0 0 0 3px black;
+    background: #fff;
+    height: 5%;
+    width: 15px;
+    margin-top: 100px;
+}
+.car{
+    transition: transform .4s linear;
+    transform-origin: center;
+    position: absolute;
+    top:80%;
+    left:40%;
+    height: 70px;
+    width: 45px;
+    z-index: 100;
+}
+.car >img{
+    position: inherit;
+    height: 100%;
+    width: 100%;
+}
+@keyframes reestablecer {
+    0%{
+        opacity: 0%;
+    }100%{
+        opacity: 100%;
+    }
+    
+}
+/* animacion agua */
+.entorno{
+    position: relative;
+    width: 160px;
+    height: 600px;
+    background:var(--arena);
+    overflow: hidden;
+}
+.entorno >div{
+    filter: sepia(var(--sepia-filter));
+    margin-top: -5px;
+    position: relative;
+}
+.entorno :nth-child(2){
+    position: absolute;
+    animation: agua2 4s ease-in-out 6s infinite alternate none;
+    animation-play-state: running;
+    z-index: 1;
+}
+.entorno >div :nth-child(1){
+    position: relative;
+    animation: agua 5s ease-in 3s infinite normal none;
+    animation-play-state: running;
+    transform: translateX(80%);
+    z-index: 0;
+
+}
+@keyframes agua2 {
+    0%{
+        
+    }100%{
+        opacity: 20%;
+        transform:translateX(10%);
+    }
+}
+@keyframes agua {
+    0%{
+        opacity: 0%;
+    }20%{ opacity: 100%;
+    }80%{
+        transform: translateX(30%);
+    }90%{
+        opacity: 0%;
+        transform: translateX(10%);
+    }100%{
+        opacity: 0%;
+        transform: translateX(10%);
+    }
+    
+}
+/* Seccion datos */
+.data{
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    text-transform: uppercase;
+    font-style: normal;
+    width: 280px;
+    height: 100%;
+    position: relative;
+    align-items: center;
+    font-size: 35px;
+    display: flex;
+    flex-flow: column nowrap;
+    background-image: url(/assets/background\ playa.svg);
+    filter: sepia(var(--sepia-filter));
+    outline: var(--border);
+    z-index: 100;
+}
+.speed-contenedor{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.speed{
+    transition: color .5s ease;
+}
+.score{
+    text-align: center;
+}
+.speed-img{
+    width: 150px;
+    left: 30px;
+    filter: grayscale(.8);
+}
+.speed-aguja{
+    position: absolute;
+    transform-origin: bottom;
+    transform: rotateZ(0deg);
+    transition: .7s ease-in-out;
+    width: 25px;
+    z-index: 100;
+}
+ @keyframes street_line{
+    0%{
+    }
+    100%{
+        transform: translatey(20%);
+    }
+ }
+
+/* // Carriles */
+.carril1{
+    position: relative;
+    z-index: 10;
+    width: 50%;
+    height: 10%;
+    top:-15%;
+    background-color: #fff;
+}
+.carril2{
+    left: 50%;
+    position: relative;
+    background-color: black;
+    z-index: 10;
+    width: 50%;
+    top:100%;
+    height: 10%;
+}
+@keyframes street_cars{
+    0%{
+        transform: translatey(0%);
+    }
+    100%{
+        transform: translatey(-1000%);
+    }
+ }
+ @keyframes street_cars_contramano{
+    0%{
+        transform: translatey(0%) rotatez(180deg);
+    }
+    100%{
+        transform: translatey(1000%) rotatez(180deg);
+    }
+ }
+ .car2{
+    position: absolute;
+    top:100%;
+    height: 70px;
+    width: 45px;
+    z-index: 10;
+}
+.car2-contramano{
+    position: absolute;
+    top:-15%;
+    height: 70px;
+    width: 45px;
+    z-index: 10;
+}
+.gameover{
+    width: 100%;
+    height: 3rem;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: calc(50%-500px);
+    z-index: 1000;
+    opacity: 0;
+    text-align: center;
+    font-size: 3rem;
+}
+.gameover >p{
+    color:red;
+}
+.block{
+    top: 0;
+    position: absolute;
+    height: 100dvh;
+    width: 100vw;
+    z-index: 1000;
+}
