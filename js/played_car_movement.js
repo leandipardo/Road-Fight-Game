@@ -4,6 +4,7 @@ export const car = {
     izq:false,
     der:false,
     giroscopio:false,
+    girosciopioAnterior:0,
     moverDer:0,
     currentDirection:0,
     sprite:document.querySelector(".car"),
@@ -11,11 +12,13 @@ export const car = {
         aceleracion: 1.5,
         controlDireccion : -20,
     },
-    rotacion(){
+    rotacion(pre){
         if(this.moverDer === 1){
             return 75;
         }else if(this.moverDer === -1){
             return -75;
+        }else if (this.giroscopio!==false){
+            return this.giroscopio - pre;
         }else{
             return 0;
         }
@@ -77,10 +80,20 @@ export function playerDirection(){
 export function giroscopioDirection(){
     window.addEventListener('deviceorientation', handleOrientation);
     function handleOrientation(event) {
-        let giroscopioNew = event.gamma *3.5;
-        (giroscopioNew > car.giroscopio)?car.moverDer=1:car.moverDer=-1;
-        car.rotacion();
+        // let giroscopioNew = event.gamma *3.5;
+        // (giroscopioNew > car.giroscopio)?car.moverDer=1:car.moverDer=-1;
+        // if(car.giroscopio === false){
+        //     giroscopioRotacion();
+        //     car.rotacion(car.girosciopioAnterior);
+        //     car.giroscopio = event.gamma * 3.5;
+        // }
+        // car.rotacion(car.girosciopioAnterior);
         car.giroscopio = event.gamma * 3.5;
-
 }
+}
+function giroscopioRotacion(){
+    setInterval(() => {
+        car.girosciopioAnterior = car.giroscopio;
+    }, 300);
+
 }
