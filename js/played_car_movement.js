@@ -88,7 +88,7 @@ export function giroscopioDirection(){
         //     car.giroscopio = event.gamma * 3.5;
         // }
         // car.rotacion(car.girosciopioAnterior);
-        car.giroscopio = event.gamma * 3.5;
+        car.giroscopio = event.gamma * 5;
 }
 }
 // function giroscopioRotacion(){
