@@ -40,7 +40,7 @@ body{
     position: relative;
     width: 320px;
     height: 600px;
-    background-color: rgb(48, 48, 48);
+    background: linear-gradient(90deg, rgba(23,23,23,1) 0%, rgba(48,48,48,1) 22%, rgba(48,48,48,1) 74%, rgba(23,23,23,1) 100%);
 }
 .street-line-conteiner{
     position: relative;
@@ -165,19 +165,6 @@ body{
 .score{
     text-align: center;
 }
-.speed-img{
-    width: 150px;
-    left: 30px;
-    filter: grayscale(.8);
-}
-.speed-aguja{
-    position: absolute;
-    transform-origin: bottom;
-    transform: rotateZ(0deg);
-    transition: .7s ease-in-out;
-    width: 25px;
-    z-index: 100;
-}
  @keyframes street_line{
     0%{
     }
@@ -205,11 +192,8 @@ body{
     height: 10%;
 }
 @keyframes street_cars{
-    0%{
-        transform: translatey(0%);
-    }
     100%{
-        transform: translatey(-1000%);
+        transform: translatey(670px);
     }
  }
  @keyframes street_cars_contramano{
@@ -222,10 +206,14 @@ body{
  }
  .car2{
     position: absolute;
-    top:100%;
+    top: -70px;
     height: 70px;
     width: 45px;
     z-index: 10;
+    animation: street_cars 100s linear 0s 1;
+}
+.car2 img{
+    width: 100%;
 }
 .car2-contramano{
     position: absolute;
